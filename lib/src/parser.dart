@@ -6,7 +6,7 @@ import './path.dart';
 
 class NuggetParser<T> extends RouteInformationParser<NuggetConfiguration<T>> {
   const NuggetParser({
-    this.paths = const <NuggetPath<T>>[],
+    this.paths = const [],
   });
 
   final List<NuggetPath<T>> paths;
