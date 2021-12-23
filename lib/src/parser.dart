@@ -39,9 +39,7 @@ class NuggetParser<T> extends RouteInformationParser<NuggetConfiguration<T>> {
     NuggetConfiguration<T> configuration,
   ) {
     return RouteInformation(
-      location: '${configuration.uri.path}'
-          '${configuration.uri.query}'
-          '${configuration.uri.fragment}',
+      location: configuration.uri.toString(),
       state: configuration.state,
     );
   }
