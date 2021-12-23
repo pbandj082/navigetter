@@ -39,28 +39,8 @@ class NuggetParser<T> extends RouteInformationParser<NuggetConfiguration<T>> {
     NuggetConfiguration<T> configuration,
   ) {
     return RouteInformation(
-      location: configuration.uri.path,
+      location: configuration.uri.origin,
       state: configuration.state,
     );
-  }
-}
-
-@Deprecated('From 0.0.2. Use NuggetParser instead.')
-class NuggetRouteInformationParser
-    extends RouteInformationParser<RouteInformation> {
-  const NuggetRouteInformationParser();
-
-  @override
-  Future<RouteInformation> parseRouteInformation(
-    RouteInformation routeInformation,
-  ) {
-    return SynchronousFuture(routeInformation);
-  }
-
-  @override
-  RouteInformation? restoreRouteInformation(
-    RouteInformation configuration,
-  ) {
-    return configuration;
   }
 }
