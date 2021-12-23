@@ -11,7 +11,7 @@ class NuggetStateScope<T> extends InheritedNotifier<NuggetState<T>> {
     required Widget child,
   }) : super(key: key, notifier: state, child: child);
 
-  static NuggetState of<T>(BuildContext context) {
+  static NuggetState<T> of<T>(BuildContext context) {
     final widget = context
         .getElementForInheritedWidgetOfExactType<NuggetStateScope<T>>()!
         .widget as NuggetStateScope<T>;
