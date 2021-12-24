@@ -14,7 +14,7 @@ class NuggetDelegate<T> extends RouterDelegate<NuggetConfiguration<T>>
   }
 
   final NuggetState<T> state;
-  final Page Function(NuggetConfiguration<T>) builder;
+  final Page Function(BuildContext, NuggetConfiguration<T>) builder;
 
   final _navigatorKey = GlobalKey<NavigatorState>();
 
@@ -38,7 +38,7 @@ class NuggetDelegate<T> extends RouterDelegate<NuggetConfiguration<T>>
 
   @override
   Widget build(BuildContext context) {
-    final pages = [builder(currentConfiguration!)];
+    final pages = [builder(context, currentConfiguration!)];
     return Navigator(
       key: navigatorKey,
       pages: pages,
