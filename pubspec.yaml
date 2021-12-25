@@ -1,6 +1,6 @@
 name: navigetter
 description: A simple navigator2.0 package.
-version: 0.0.4
+version: 0.0.5
 
 environment:
   sdk: ">=2.15.0 <3.0.0"

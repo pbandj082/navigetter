@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:navigetter/src/configuration.dart';
 
-import './router_state.dart';
+import './model.dart';
 
 class NuggetDelegate<T> extends RouterDelegate<NuggetConfiguration<T>>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin {
@@ -13,7 +13,7 @@ class NuggetDelegate<T> extends RouterDelegate<NuggetConfiguration<T>>
     state.addListener(notifyListeners);
   }
 
-  final NuggetState<T> state;
+  final NuggetModel<T> state;
   final Page Function(BuildContext, NuggetConfiguration<T>) builder;
 
   final _navigatorKey = GlobalKey<NavigatorState>();
