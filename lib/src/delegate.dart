@@ -7,13 +7,13 @@ import './model.dart';
 class NuggetDelegate<T> extends RouterDelegate<NuggetConfiguration<T>>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin {
   NuggetDelegate({
-    required this.state,
+    required this.model,
     required this.builder,
   }) {
-    state.addListener(notifyListeners);
+    model.addListener(notifyListeners);
   }
 
-  final NuggetModel<T> state;
+  final NuggetModel<T> model;
   final Page Function(BuildContext, NuggetConfiguration<T>) builder;
 
   final _navigatorKey = GlobalKey<NavigatorState>();
@@ -23,17 +23,17 @@ class NuggetDelegate<T> extends RouterDelegate<NuggetConfiguration<T>>
 
   @override
   NuggetConfiguration<T>? get currentConfiguration =>
-      state.currentConfiguration;
+      model.currentConfiguration;
 
   @override
   Future<void> setInitialRoutePath(NuggetConfiguration<T> configuration) {
-    state.update(configuration);
+    model.update(configuration);
     return SynchronousFuture(null);
   }
 
   @override
   Future<void> setNewRoutePath(NuggetConfiguration<T> configuration) async {
-    await state.updateAndNotify(configuration);
+    await model.updateAndNotify(configuration);
   }
 
   @override

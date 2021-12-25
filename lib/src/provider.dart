@@ -7,9 +7,9 @@ import 'path.dart';
 class NuggetScope<T> extends InheritedNotifier<NuggetModel<T>> {
   const NuggetScope({
     Key? key,
-    required NuggetModel<T> state,
+    required NuggetModel<T> model,
     required Widget child,
-  }) : super(key: key, notifier: state, child: child);
+  }) : super(key: key, notifier: model, child: child);
 }
 
 class Nugget<T> extends StatefulWidget {
@@ -34,7 +34,7 @@ class Nugget<T> extends StatefulWidget {
 }
 
 class _NuggetModel<T> extends State<Nugget<T>> {
-  late final NuggetModel<T> _state;
+  late final NuggetModel<T> _model;
 
   @override
   void initState() {
@@ -42,13 +42,13 @@ class _NuggetModel<T> extends State<Nugget<T>> {
     final parser = NuggetParser<T>(
       paths: widget.paths,
     );
-    _state = NuggetModel(parser: parser);
+    _model = NuggetModel(parser: parser);
   }
 
   @override
   Widget build(BuildContext context) {
     return NuggetScope<T>(
-      state: _state,
+      model: _model,
       child: widget.child,
     );
   }
