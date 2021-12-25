@@ -42,7 +42,7 @@ class _NuggetState<T> extends State<Nugget<T>> {
     final parser = NuggetParser<T>(
       paths: widget.paths,
     );
-    _model = NuggetModel(parser: parser);
+    _model = NuggetModel<T>(parser: parser);
   }
 
   @override
