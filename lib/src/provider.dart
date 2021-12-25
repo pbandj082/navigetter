@@ -30,7 +30,7 @@ class Nugget<T> extends StatefulWidget {
   }
 
   @override
-  _NuggetState createState() => _NuggetState();
+  _NuggetState<T> createState() => _NuggetState<T>();
 }
 
 class _NuggetState<T> extends State<Nugget<T>> {
