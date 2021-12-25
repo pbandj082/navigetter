@@ -15,11 +15,11 @@ class NuggetScope<T> extends InheritedNotifier<NuggetModel<T>> {
 class Nugget<T> extends StatefulWidget {
   const Nugget({
     Key? key,
-    required this.paths,
+    this.paths,
     required this.child,
   }) : super(key: key);
 
-  final List<NuggetPath<T>> paths;
+  final List<NuggetPath<T>>? paths;
   final Widget child;
 
   static NuggetModel<T> of<T>(BuildContext context) {
@@ -40,7 +40,7 @@ class _NuggetState<T> extends State<Nugget<T>> {
   void initState() {
     super.initState();
     final parser = NuggetParser<T>(
-      paths: widget.paths,
+      paths: widget.paths ?? [],
     );
     _model = NuggetModel<T>(parser: parser);
   }
